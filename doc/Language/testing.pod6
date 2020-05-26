@@ -6,7 +6,7 @@
 
 
 Testing code is an integral part of software development. Tests provide
-automated, repeatable verifications of code behavior, and ensures your
+automated, repeatable verifications of code behavior, and ensure your
 code works as expected.
 
 In Raku, the L<Test|/type/Test> module provides a testing framework, used also
@@ -19,8 +19,8 @@ in sink context:
 =for code :preamble<use Test; my ($meta,$relaxed-name); sub check-name($meta,:$relaxed-name){}>
 ok check-name($meta, :$relaxed-name), "name has a hyphen rather than '::'"
 
-but all functions also return as a Boolean if the test has been successful or
-not, which can be used to print a message if the test fails:
+but all functions also return as a Boolean whether the test has been successful
+or not, which can be used to print a message if the test fails:
 
 =begin code :preamble<use Test; my ($meta,$relaxed-name); sub check-name($meta,:$relaxed-name){}>
 ok check-name($meta, :$relaxed-name), "name has a hyphen rather than '::'" \
@@ -45,8 +45,8 @@ plan $num-tests;
 done-testing;  # optional with 'plan'
 =end code
 
-We start by loading the C<Test> module and specifying where our libraries
-are.  We then specify how many tests we I<plan> to run (such that the testing
+We start by loading the C<Test> module and specifying where our libraries are.
+We then specify how many tests we I<plan> to run (such that the testing
 framework can tell us if more or fewer tests were run than we expected) and when
 finished with the tests, we use I<done-testing> to tell the framework we are
 done.
@@ -85,7 +85,7 @@ You can run C<prove6> in a distribution directory this way:
 =for code :lang<shell>
 $ prove6 --lib t/
 
-The C<t/> argument specified directory that contains tests and the
+The C<t/> argument specifies the directory that contains tests and the
 C<--lib> option is passed to include C<lib> directory into Raku
 distribution path, it is an equivalent of C<-Ilib> argument of
 C<raku> command.
@@ -108,7 +108,7 @@ the C<Test> module:
 
 =head1 Test plans
 
-Tests plans use L<C<plan>|/type/Test#plan> for declaring how many plans are
+Tests plans use L<C<plan>|/type/Test#plan> for declaring how many tests are
 going to be done or, as might be the case, skipped. If no plan is declared,
 L<C<done-testing>|/type/Test#done-testing> is used to declare the end of the
 tests.
@@ -127,7 +127,7 @@ helpful diagnostics output in case the comparison fails.
 =head2 By string comparison
 
 L<C<is>|/type/Test#is> and L<C<nok>|/type/Test#isnt> test for equality using the
-proper operator, depending on the object (or class) it's handled.
+proper operator, depending on the object (or class) its handed.
 
 =head2 By approximate numeric comparison
 
@@ -138,7 +138,7 @@ precision will depend on the internal representation.
 =head2 By structural comparison
 
 Structures can be also compared using L<C<is-deeply>|/type/Test#is-deeply>,
-which will check that internal structures of the objects compared is the same.
+which will check that internal structures of the objects compared are the same.
 
 =head2 By arbitrary comparison
 
@@ -177,7 +177,7 @@ if they fail to load.
 =head1 Testing exceptions
 
 L<C<dies-ok>|/type/Test#dies-ok> and L<C<lives-ok>|/type/Test#lives-ok> are
-opposites ways of testing code; the first checks that it throws an exception,
+opposite ways of testing code; the first checks that it throws an exception,
 the second that it does not; L<C<throws-like>|/type/Test#throws-like> checks
 that the code throws the specific exception it gets handed as an argument;
 L<C<fails-like>|/type/Test#fails-like>, similarly, checks if the code returns a
